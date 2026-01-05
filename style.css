@@ -1,0 +1,86 @@
+:root{
+  --bg:#0b1020;
+  --card: rgba(255,255,255,0.05);
+  --text:#e6eef8;
+  --muted:#9aa7bf;
+  --accent:linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  --glass: rgba(255,255,255,0.04);
+  --radius:18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.center{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:16px;
+  padding:24px;
+}
+
+.clock-card{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.02)
+    );
+  backdrop-filter: blur(8px);
+  border-radius:var(--radius);
+  padding:28px 36px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  width:min(92vw, 420px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.clock{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  user-select:none;
+}
+
+#time{
+  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, "Courier New", monospace;
+  font-weight:700;
+  line-height:1;
+  font-size: clamp(40px, 10vw, 72px);
+  letter-spacing: -0.02em;
+  color:var(--text);
+  white-space:nowrap;
+}
+
+.colon{
+  display:inline-block;
+  animation: blink 1s steps(1,start) infinite;
+  vertical-align: middle;
+  opacity:1;
+}
+
+.date{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:500;
+}
+
+@media (max-width:420px){
+  .clock-card{ padding:20px }
+  #time{ font-size: clamp(36px, 12vw, 60px); }
+}
